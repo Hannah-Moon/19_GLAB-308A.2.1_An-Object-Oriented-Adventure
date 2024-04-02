@@ -7,114 +7,28 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+
         <link rel="stylesheet" href="style.css">
+
     </head>
 
     <body>
-<!-- 
-        <h1>GLAB 308A.2.1:  An Object-Oriented Adventure</h1>
 
-        <ul><H3>Objectives</H3>
-            <li>Use nested arrays and objects.</li>
-            <li>Combine objects, arrays, and functions.</li>
-            <li>Create a class to define the blueprint for creating objects.</li>
-            <li>Add methods to a class.</li>
-            <li>Set properties on an instance of a class.</li>
-            <li>Make an instance of each class customizable.</li>
-            <li>Create methods to alter the properties of an instance.</li>
-            <li>Develop a class that inherits attributes from a "parent" class.</li>
-            <li>Create static properties for a class.</li>
-            <li>Create a "factory.</li>
+        <div class="container">
+            <h1>Adventurer</h1>
+            <div id="adventurer-info">
+                <p><strong>Name:</strong> <span id="adventurer-name"></span></p>
+                <p><strong>Health:</strong> <span id="adventurer-health"></span></p>
+                <p><strong>Inventory:</strong> <span id="adventurer-inventory"></span></p>
+                <p><strong>Role:</strong> <span id="adventurer-role"></span></p>
+            </div>
+            <button id="roll-btn">Roll</button>
+            <p id="roll-result"></p>
+        </div>
 
-
-
-        </ul> -->
-
-
-            <h1>People Interaction</h1>
-
-            <form id="personForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
-                <button type="submit">Add Person</button>
-            </form>
-
-            <div id="peopleList"></div>
-
-            <button id="rollDice">Roll Dice</button>
-            <button id="displayInfo">Display Character Info</button>
-
-                    
-            <script>
-                class Character {
-                    constructor(name) {
-                        this.name = name;
-                        this.health = 100;
-                    }
-                    roll(mod = 0) {
-                        const result = Math.floor(Math.random() * 20) + 1 + mod;
-                        console.log(`${this.name} rolled a ${result}.`);
-                        return result;
-                    }
-                }
-            
-                const characters = [];
-            
-                function createPerson(name, age) {
-                    const person = { name, age };
-                    characters.push(person);
-                    displayPeople();
-                }
-            
-                function displayPeople() {
-                    const peopleList = document.getElementById('peopleList');
-                    peopleList.innerHTML = ''; // Clear previous content
-            
-                    characters.forEach(person => {
-                        const personDiv = document.createElement('div');
-                        personDiv.classList.add('person');
-                        personDiv.textContent = `Name: ${person.name}, Age: ${person.age}`;
-                        peopleList.appendChild(personDiv);
-                    });
-                }
-            
-                const personForm = document.getElementById('personForm');
-                personForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const nameInput = document.getElementById('name');
-                    const ageInput = document.getElementById('age');
-                    const name = nameInput.value.trim();
-                    const age = parseInt(ageInput.value.trim(), 10);
-            
-                    if (name && !isNaN(age)) {
-                        createPerson(name, age);
-                        nameInput.value = ''; // Clear input fields
-                        ageInput.value = '';
-                    } else {
-                        alert('Please enter valid name and age.');
-                    }
-                });
-            
-                document.getElementById('rollDice').addEventListener('click', function() {
-                    characters.forEach(character => {
-                        const result = new Character(character.name).roll();
-                        alert(`${character.name} rolled a ${result}.`);
-                    });
-                });
-            
-                document.getElementById('displayInfo').addEventListener('click', function() {
-                    characters.forEach(character => {
-                        alert(`Name: ${character.name}, Age: ${character.age}`);
-                    });
-                });
-            </script>
-        
-
-
-        <script src="app.js" async defer></script>
-        <script src="adventure_simulator.js" async defer></script>
+        <script src="part_4_classUniforms.js" async defer></script>
 
     </body>
 </html>
