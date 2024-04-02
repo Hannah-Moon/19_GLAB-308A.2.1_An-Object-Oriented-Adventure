@@ -6,8 +6,6 @@ This guided activity walks you through the process of creating a simple adventur
 
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
-
 **Language:** Node, JS, HTML, CSS
 
 
